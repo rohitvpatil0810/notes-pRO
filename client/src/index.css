@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Balsamiq+Sans&family=Roboto&family=Source+Sans+Pro&display=swap');
+
+input:focus {outline:none!important;}
