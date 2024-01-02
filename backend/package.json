@@ -2,22 +2,32 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "dotenv": "^11.0.0",
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.5",
+    "swagger-ui-express": "^5.0.0",
     "validator": "^13.7.0"
   },
   "name": "notesapp",
   "version": "1.0.0",
   "main": "app.js",
-  "devDependencies": {},
+  "nodemonConfig": {
+    "ignore": [
+      "swagger_output.json"
+    ]
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
     "start": "node app.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Rohit Patil",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "swagger-autogen": "^2.23.7"
+  }
 }
