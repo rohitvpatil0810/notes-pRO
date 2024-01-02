@@ -5,8 +5,7 @@ import Header from "../components/Header";
 import { Link, useNavigate } from "react-router-dom";
 import HashLoader from "react-spinners/HashLoader";
 
-
-export default function Dashboard({setToast}) {
+export default function Dashboard({ setToast }) {
   const navigate = useNavigate();
   const [Email, setEmail] = useState("");
   const [Notes, setNotes] = useState([]);
@@ -15,7 +14,9 @@ export default function Dashboard({setToast}) {
   useEffect(() => {
     setLoading(true);
     async function fetchNotes() {
-      const res = await fetch("/getnotes", {
+      let apiUrl = process.env.REACT_APP_API_URL;
+
+      const res = await fetch(apiUrl + "/getnotes", {
         credentials: "include",
       });
       const data = await res.json();
@@ -45,8 +46,12 @@ export default function Dashboard({setToast}) {
       ) : (
         <div>
           <div className="px-2 flex-col">
-            <div className="text-head font-medium text-base lg:text-lg py-2">Hello,</div>
-            <div className="text-2xl lg:text-4xl font-head font-semibold">{Email}</div>
+            <div className="text-head font-medium text-base lg:text-lg py-2">
+              Hello,
+            </div>
+            <div className="text-2xl lg:text-4xl font-head font-semibold">
+              {Email}
+            </div>
           </div>
           <div className="recent_notes py-3 lg:py-8">
             <div className="recent_notes text-lg lg:text-2xl text-head font-roboto font-semibold px-2">
@@ -89,7 +94,6 @@ export default function Dashboard({setToast}) {
       <div className="pb-2 lg:absolute lg:left-1/2 lg:bottom-5">
         <Footer></Footer>
       </div>
-      
     </div>
   );
 }
