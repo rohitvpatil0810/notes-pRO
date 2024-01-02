@@ -1,11 +1,13 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const mongoose = require("mongoose");
 const cors = require("cors");
 const authRoutes = require("./routes/authRoutes");
 const notesRoutes = require("./routes/notesRoutes");
 const cookieParser = require("cookie-parser");
 const connectToDatabase = require("./config/database");
+const { generateDocumentation } = require("./swagger/swagger");
+const swaggerUi = require("swagger-ui-express");
+const swaggerFile = require("./swagger/swagger_output.json");
 
 const app = express();
 
@@ -27,6 +29,10 @@ const port = process.env.PORT || 5000;
 
 // Connect to the database
 connectToDatabase();
+
+// generate swagger documentation
+generateDocumentation();
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use(authRoutes);
 app.use(notesRoutes);

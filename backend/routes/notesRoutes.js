@@ -8,7 +8,6 @@ const {
 } = require("../controllers/notesControllers");
 const { requireAuth } = require("../middleware/authMiddleware");
 const router = Router();
-
 router.get("/getnotes", requireAuth, notes_get); // id of user
 router.post("/createnewnote", requireAuth, note_post); // id of user
 router.get("/note/:id", requireAuth, note_get); // id of note
