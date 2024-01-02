@@ -22,9 +22,8 @@ export default function Signup() {
   const signup = async (e) => {
     e.preventDefault();
     setLoading("Loading");
-    let apiUrl = process.env.REACT_APP_API_URL;
 
-    const res = await fetch(apiUrl + "/signup", {
+    const res = await fetch("/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

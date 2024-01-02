@@ -17,9 +17,7 @@ export default function UpdateNotes({ setToast }) {
 
   useEffect(() => {
     async function fetchNote() {
-      let apiUrl = process.env.REACT_APP_API_URL;
-
-      const res = await fetch(apiUrl + `/note/${from}`, {
+      const res = await fetch(`/note/${from}`, {
         credentials: "include",
       });
       const note = await res.json();
@@ -37,9 +35,8 @@ export default function UpdateNotes({ setToast }) {
     e.preventDefault();
     setSymbol("hourglass_empty");
     setLoading("Loading");
-    let apiUrl = process.env.REACT_APP_API_URL;
 
-    const res = await fetch(apiUrl + `/updatenote/${from}`, {
+    const res = await fetch(`/updatenote/${from}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

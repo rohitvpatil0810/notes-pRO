@@ -14,9 +14,7 @@ export default function Dashboard({ setToast }) {
   useEffect(() => {
     setLoading(true);
     async function fetchNotes() {
-      let apiUrl = process.env.REACT_APP_API_URL;
-
-      const res = await fetch(apiUrl + "/getnotes", {
+      const res = await fetch("/getnotes", {
         credentials: "include",
       });
       const data = await res.json();

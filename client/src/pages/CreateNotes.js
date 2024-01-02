@@ -17,9 +17,8 @@ export default function CreateNotes({ setToast }) {
     e.preventDefault();
     setSymbol("hourglass_empty");
     setLoading("Loading");
-    let apiUrl = process.env.REACT_APP_API_URL;
 
-    const res = await fetch(apiUrl + "/createnewnote", {
+    const res = await fetch("/createnewnote", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

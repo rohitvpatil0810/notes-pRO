@@ -5,9 +5,7 @@ export default function Notescard(props) {
   const navigate = useNavigate();
 
   const deletenote = async () => {
-    let apiUrl = process.env.REACT_APP_API_URL;
-
-    const res = await fetch(apiUrl + `/note/${props.id}`, {
+    const res = await fetch(`/note/${props.id}`, {
       method: "DELETE",
       credentials: "include",
     });

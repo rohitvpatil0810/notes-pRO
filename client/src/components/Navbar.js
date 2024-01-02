@@ -6,9 +6,8 @@ export default function Navbar() {
   const navigator = useNavigate();
   const logout = async () => {
     console.log("logging out");
-    let apiUrl = process.env.REACT_APP_API_URL;
 
-    const res = await fetch(apiUrl + "/logout", {
+    const res = await fetch("/logout", {
       credentials: "include",
     });
     // console.log(res);

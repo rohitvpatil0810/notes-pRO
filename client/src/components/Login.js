@@ -20,11 +20,9 @@ export default function Login() {
   };
 
   const login = async (e) => {
-    let apiUrl = process.env.REACT_APP_API_URL;
-
     e.preventDefault();
     setLoading("Loading");
-    const res = await fetch(apiUrl + "/login", {
+    const res = await fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
